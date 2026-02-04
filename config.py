@@ -9,7 +9,8 @@ class Config:
     API_HASH: str = os.getenv("API_HASH", "a8639172fa8d35dbfd8ea46286d349ab")
     BOT_TOKEN: str = os.getenv("BOT_TOKEN", "7261458320:AAHpUmO1iXG03ACWP0doh7ylEISewmmPL4A")
     
-    # Configuration des canaux
+    # Configuration des canaux (SUPERGROUP/SUBCHANNEL IDs)
+    # Enlever le -100 et garder juste le nombre pour Pyrogram
     SOURCE_CHANNEL_ID: int = int(os.getenv("SOURCE_CHANNEL_ID", "-1003376569543"))
     TARGET_CHANNEL_ID: int = int(os.getenv("TARGET_CHANNEL_ID", "-1003897821246"))
     
@@ -28,6 +29,5 @@ class Config:
     def load(cls) -> "Config":
         return cls()
 
-# Instance globale de configuration
 config = Config.load()
-
+    
